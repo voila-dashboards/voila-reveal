@@ -49,14 +49,13 @@
 <title>{{nb_title}} slides</title>
 
 {%- block html_head_js -%}
-<script src="{{resources.reveal.require_js_url}}"></script>
-<script src="{{resources.reveal.jquery_url}}"></script>
+<script src="{{resources.base_url}}voila/static/jquery.min.js"></script>
 {{ super() }}
 {%- endblock html_head_js -%}
 
 <!-- General and theme style sheets -->
-<link rel="stylesheet" href="{{resources.reveal.url_prefix}}/css/reveal.css">
-<link rel="stylesheet" href="{{resources.reveal.url_prefix}}/css/theme/{{resources.reveal.theme}}.css" id="theme">
+<link rel="stylesheet" href="{{resources.base_url}}voila/static/css/reveal.css">
+<link rel="stylesheet" href="{{resources.base_url}}voila/static/css/theme/{{resources.reveal.theme}}.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -64,21 +63,21 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = '{{resources.reveal.url_prefix}}/css/print/pdf.css';
+        link.href = '{{resources.base_url}}voila/static/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
 
 </script>
 
 <!--[if lt IE 9]>
-<script src="{{resources.reveal.url_prefix}}/lib/js/html5shiv.js"></script>
+<script src="{{resources.base_url}}voila/static/lib/js/html5shiv.js"></script>
 <![endif]-->
 
 <!-- Loading the mathjax macro -->
 {{ mathjax() }}
 
 <!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="{{resources.reveal.font_awesome_url}}">
+<link rel="stylesheet" href="https://unpkg.com/font-awesome@4.5.0/css/font-awesome.min.css" type="text/css" />
 
 {% for css in resources.inlining.css -%}
     <style type="text/css">
@@ -230,8 +229,8 @@ require(
       waitSeconds: 15
     },
     [
-      "{{resources.reveal.url_prefix}}/lib/js/head.min.js",
-      "{{resources.reveal.url_prefix}}/js/reveal.js"
+      "{{resources.base_url}}voila/static/lib/js/head.min.js",
+      "{{resources.base_url}}voila/static/js/reveal.js"
     ],
 
     function(head, Reveal){
@@ -246,9 +245,9 @@ require(
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
-                { src: "{{resources.reveal.url_prefix}}/lib/js/classList.js",
+                { src: "{{resources.base_url}}voila/static/lib/js/classList.js",
                   condition: function() { return !document.body.classList; } },
-                { src: "{{resources.reveal.url_prefix}}/plugin/notes/notes.js",
+                { src: "{{resources.base_url}}voila/static/plugin/notes/notes.js",
                   async: true,
                   condition: function() { return !!document.body.classList; } }
             ]
