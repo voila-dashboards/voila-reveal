@@ -1,0 +1,11 @@
+{
+  "VoilaConfiguration": {
+    "resources": {
+      "reveal": {
+        "scroll": false,
+        "theme": "simple",
+        "transition": "slide"
+      }
+    }
+  }
+}
