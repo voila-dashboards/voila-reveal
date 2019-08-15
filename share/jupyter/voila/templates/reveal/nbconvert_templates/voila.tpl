@@ -1,6 +1,12 @@
 {%- extends 'base.tpl' -%}
 {% from 'mathjax.tpl' import mathjax %}
 
+{% for cell in nb.cells %}
+    {# Make sure every cell has a slide_type #}
+    {% set slide_type = cell.metadata.get('slideshow', {}).get('slide_type', '-') %}
+    {% set x = cell.metadata.__setitem__('slide_type', slide_type) %}
+{% endfor %}
+
 {%- block any_cell scoped -%}
 {%- if cell.metadata.get('slide_start', False) -%}
 <section>
