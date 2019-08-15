@@ -241,7 +241,9 @@ require(
             progress: true,
             history: true,
 
-            transition: "{{resources.reveal.transition}}",
+            <!-- Default values for necessary resources -->
+            scroll: "{{resources.reveal.scroll | default(false, true)}}",
+            transition: "{{resources.reveal.transition | default('slide', true)}}",
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
@@ -262,7 +264,7 @@ require(
         Reveal.addEventListener('slidechanged', update);
 
         function setScrollingSlide() {
-            var scroll = {{ resources.reveal.scroll | json_dumps }}
+            var scroll = {{ (resources.reveal.scroll | default(false, true)) | json_dumps }}
             if (scroll === true) {
               var h = $('.reveal').height() * 0.95;
               $('section.present').find('section')
