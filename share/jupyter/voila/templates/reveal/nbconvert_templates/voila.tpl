@@ -7,6 +7,42 @@
     {% set x = cell.metadata.__setitem__('slide_type', slide_type) %}
 {% endfor %}
 
+{% for cell in nb.cells %}
+    {% if cell.metadata.get('slide_type') not in ['notes', 'skip'] %}
+        {% set x = cell.metadata.__setitem__('slide_type', 'slide') %}
+        {% set x = cell.metadata.__setitem__('slide_start', true) %}
+        {% set x = cell.metadata.__setitem__('subslide_start', true) %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+{% set ns = namespace(in_fragment = false) %}
+{% for cell in nb.cells %}
+    {# Assume first cell is visible #}
+    {% if loop.index0 > 0 %}
+        {% set previous_cell = nb.cells[loop.index0 - 1]%}
+        {# Get the slide type. If type is subslide or slide, #}
+        {# end the last slide/subslide/fragment as applicable. #}
+        {% if cell.metadata.get('slide_type') in ['slide', 'subslide'] %}
+            {% set x = previous_cell.metadata.__setitem__('fragment_end', ns.in_fragment) %}
+            {% set x = previous_cell.metadata.__setitem__('subslide_end', true) %}
+            {% set x = cell.metadata.__setitem__('subslide_start', true) %}
+            {% set ns.in_fragment = false %}
+            {% if cell.metadata.get('slide_type') == 'slide' %}
+                {% set x = previous_cell.metadata.__setitem__('slide_end', true) %}
+                {% set x = cell.metadata.__setitem__('slide_start', true) %}
+            {% endif %}
+        {% elif cell.metadata.get('slide_type') == 'fragment' %}
+            {% set x = cell.metadata.__setitem__('fragment_start', true) %}
+            {% if ns.in_fragment %}
+                {% set x = previous_cell.metadata.__setitem__('fragment_end', true) %}
+            {% else %}
+                {% set ns.in_fragment = true %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
 {%- block any_cell scoped -%}
 {%- if cell.metadata.get('slide_start', False) -%}
 <section>
