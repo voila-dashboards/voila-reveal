@@ -43,6 +43,11 @@
     {% endif %}
 {% endfor %}
 
+{# The last cell will always be the end of a slide #}
+{% set x = nb.cells[-1].metadata.__setitem__('fragment_end', ns.in_fragment) %}
+{% set x = nb.cells[-1].metadata.__setitem__('subslide_end', true) %}
+{% set x = nb.cells[-1].metadata.__setitem__('slide_end', true) %}
+
 {%- block any_cell scoped -%}
 {%- if cell.metadata.get('slide_start', False) -%}
 <section>
