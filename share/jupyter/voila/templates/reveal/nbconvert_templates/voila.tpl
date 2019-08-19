@@ -8,6 +8,7 @@
 {% endfor %}
 
 {% for cell in nb.cells %}
+    {# Start (display) cells (slides) meant to be shown #}
     {% if cell.metadata.get('slide_type') not in ['notes', 'skip'] %}
         {% set x = cell.metadata.__setitem__('slide_type', 'slide') %}
         {% set x = cell.metadata.__setitem__('slide_start', true) %}
@@ -18,7 +19,6 @@
 
 {% set ns = namespace(in_fragment = false) %}
 {% for cell in nb.cells %}
-    {# Assume first cell is visible #}
     {% if loop.index0 > 0 %}
         {% set previous_cell = nb.cells[loop.index0 - 1]%}
         {# Get the slide type. If type is subslide or slide, #}
