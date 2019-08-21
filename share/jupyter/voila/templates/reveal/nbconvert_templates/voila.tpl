@@ -290,6 +290,7 @@ require(
 
             <!-- Default values for necessary resources -->
             scroll: "{{resources.reveal.scroll | default(false, true)}}",
+            theme: "{{resources.reveal.theme | default('simple', true)}}",
             transition: "{{resources.reveal.transition | default('slide', true)}}",
 
             // Optional libraries used to extend on reveal.js
