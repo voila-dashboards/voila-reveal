@@ -101,8 +101,16 @@
 {%- endblock html_head_js -%}
 
 <!-- General and theme style sheets -->
-<link rel="stylesheet" href="{{resources.base_url}}voila/static/css/reveal.css">
+<link rel="stylesheet" type="text/css" href="{{resources.base_url}}voila/static/index.css"></link>
+
+{% if resources.theme == 'dark' %}
+    <link rel="stylesheet" type="text/css" href="{{resources.base_url}}voila/static/theme-dark.css"></link>
+{% else %}
+    <link rel="stylesheet" type="text/css" href="{{resources.base_url}}voila/static/theme-light.css"></link>
+{% endif %}
+
 <link rel="stylesheet" href="{{resources.base_url}}voila/static/css/theme/{{resources.reveal.theme}}.css" id="theme">
+<link rel="stylesheet" href="{{resources.base_url}}voila/static/css/reveal.css">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
