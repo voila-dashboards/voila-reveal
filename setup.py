@@ -12,11 +12,11 @@ setup_args = {
     'packages': [],
     'data_files': data_files,
     'install_requires': [
-        'voila>=0.1.6,<0.2'
+        'voila>=0.1.12,<0.2'
     ],
     'author': 'QuantStack',
     'author_email': 'info@quantstack.net',
-    'url': 'https://github.com/QuantStack/voila-reveal/'
+    'url': 'https://github.com/voila-dashboards/voila-reveal/'
 }
 
 if __name__ == '__main__':
