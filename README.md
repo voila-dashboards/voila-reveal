@@ -2,11 +2,11 @@
 
 [![Join the Gitter Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/QuantStack/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-A reveal-based template for [voila](https://github.com/QuantStack/voila/).
+A reveal-based template for [Voilà](https://github.com/voila-dashboards/voila/).
 
 ## Installation
 
-`voila-reveal` can be installed from pypi
+`voila-reveal` can be installed from PyPI
 
 ```
 pip install voila-reveal
