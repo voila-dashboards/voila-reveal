@@ -12,6 +12,13 @@ A reveal-based template for [Voilà](https://github.com/voila-dashboards/voila/)
 pip install voila-reveal
 ```
 
+Or from conda-forge:
+
+```
+conda install -c conda-forge voila-reveal
+```
+
+
 ## License
 
 We use a shared copyright model that enables all contributors to maintain the
