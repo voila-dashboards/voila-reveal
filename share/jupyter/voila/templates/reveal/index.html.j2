@@ -1,5 +1,5 @@
-{%- extends 'base.tpl' -%}
-{% from 'mathjax.tpl' import mathjax %}
+{%- extends 'lab/index.html.j2' -%}
+{% from 'mathjax.html.j2' import mathjax %}
 
 {% for cell in nb.cells %}
     {# Make sure every cell has a slide_type #}
