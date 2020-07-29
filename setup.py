@@ -49,7 +49,8 @@ setup_args = {
     'packages': [],
     'data_files': data_files,
     'install_requires': [
-        'voila>=0.1.15,<0.2'
+        'voila==0.2.0a1',
+        'nbconvert==6.0.0a5'
     ],
     'author': 'Voila Development team',
     'author_email': 'jupyter@googlegroups.com',
