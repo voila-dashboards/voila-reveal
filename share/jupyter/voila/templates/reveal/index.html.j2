@@ -1,6 +1,10 @@
 {%- extends 'nbconvert/templates/reveal/index.html.j2' -%}
+{% import "log.macro.html.j2" as log %}
 
 {%- block html_head_js -%}
+{%- block html_head_js_logs -%}
+{{ log.js() }}
+{%- endblock html_head_js_logs -%}
 {%- block html_head_js_jquery -%}
 <script src="{{ resources.jquery_url }}"></script>
 {%- endblock html_head_js_jquery -%}
@@ -11,7 +15,7 @@
     {{ resources.include_css("static/labvariables.css") }}
 
 {% block notebook_execute %}
-    {%- set kernel_id = kernel_start() -%}
+    {%- set kernel_id = kernel_start(nb) -%}
     <script id="jupyter-config-data" type="application/json">
     {
         "baseUrl": "{{resources.base_url}}",
