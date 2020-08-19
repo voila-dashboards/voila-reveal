@@ -49,7 +49,7 @@ setup_args = {
     'packages': [],
     'data_files': data_files,
     'install_requires': [
-        'voila==0.2.0a2'
+        'voila==0.2.0a3'
     ],
     'author': 'Voila Development team',
     'author_email': 'jupyter@googlegroups.com',
