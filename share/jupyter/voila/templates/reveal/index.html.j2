@@ -3,13 +3,13 @@
 {% from 'voila_setup.macro.html.j2' import voila_setup %}
 
 {%- block html_head_js -%}
-{%- block html_head_js_logs -%}
-{{ log.js() }}
-{%- endblock html_head_js_logs -%}
-{%- block html_head_js_jquery -%}
-<script src="{{ resources.jquery_url }}"></script>
-{%- endblock html_head_js_jquery -%}
-{% block notebook_execute %}
+  {%- block html_head_js_logs -%}
+    {{ log.js() }}
+  {%- endblock html_head_js_logs -%}
+  {%- block html_head_js_jquery -%}
+    <script src="{{ resources.jquery_url }}"></script>
+  {%- endblock html_head_js_jquery -%}
+  {% block notebook_execute %}
     {%- set kernel_id = kernel_start(nb) -%}
     <script id="jupyter-config-data" type="application/json">
     {
@@ -19,7 +19,7 @@
     </script>
     {# from this point on, nb.cells contains output of the executed cells #}
     {% do notebook_execute(nb, kernel_id) %}
-{%- endblock notebook_execute -%}
+  {%- endblock notebook_execute -%}
 {%- endblock html_head_js -%}
 
 {%- block html_head_css -%}
@@ -29,12 +29,12 @@
 {%- endblock html_head_css -%}
 
 {% block body_header %}
-<body data-base-url="{{resources.base_url}}voila/">
-<div class="reveal">
-<div class="slides">
+  <body data-base-url="{{resources.base_url}}voila/">
+  <div class="reveal">
+  <div class="slides">
 {% endblock body_header %}
 
 {% block footer_js %}
-{{ voila_setup() }}
-{{ super() }}
+  {{ voila_setup() }}
+  {{ super() }}
 {% endblock footer_js %}
