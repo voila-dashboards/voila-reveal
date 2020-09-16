@@ -45,7 +45,7 @@ for root, dirs, files in os.walk('share'):
 
 setup_args = {
     'name': 'voila-reveal',
-    'version': '0.1.0a4',
+    'version': '0.1.0',
     'packages': [],
     'data_files': data_files,
     'install_requires': [
