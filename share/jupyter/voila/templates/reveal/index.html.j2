@@ -9,6 +9,13 @@
   {%- block html_head_js_jquery -%}
     <script src="{{ resources.jquery_url }}"></script>
   {%- endblock html_head_js_jquery -%}
+  {%- block html_head_js_requirejs -%}
+  <script
+    src="{{resources.base_url}}voila/static/require.min.js"
+    integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA="
+    crossorigin="anonymous">
+  </script>
+  {%- endblock html_head_js_requirejs -%}
   {% block notebook_execute %}
     {%- set kernel_id = kernel_start(nb) -%}
     <script id="jupyter-config-data" type="application/json">
@@ -35,6 +42,6 @@
 {% endblock body_header %}
 
 {% block footer_js %}
-  {{ voila_setup() }}
+  {{ voila_setup(resources.base_url, resources.nbextensions) }}
   {{ super() }}
 {% endblock footer_js %}
