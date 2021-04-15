@@ -15,7 +15,7 @@ pip install voila-reveal
 Or from conda-forge:
 
 ```
-conda install -c conda-forge voila-reveal
+mamba install -c conda-forge voila-reveal
 ```
 
 ## Usage
