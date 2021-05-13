@@ -4,6 +4,8 @@
 
 A reveal-based template for [Voilà](https://github.com/voila-dashboards/voila/).
 
+Read more about the project in the [announcement post](https://blog.jupyter.org/a-slideshow-template-for-voil%C3%A0-apps-435f67d10b4f).
+
 ## Installation
 
 `voila-reveal` can be installed from PyPI
