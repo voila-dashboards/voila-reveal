@@ -4,9 +4,10 @@
 
 A reveal-based template for [Voilà](https://github.com/voila-dashboards/voila/).
 
-Read more about the project in the [announcement post](https://blog.jupyter.org/a-slideshow-template-for-voil%C3%A0-apps-435f67d10b4f).
+### ⚠️  **Voilà-Reveal has been integrated in the core Voilà project** ⚠️ 
+### **As of version 0.3 of Voilà, this package is not necessary.**
 
-## Installation
+## Installation (for Voilà <0.3)
 
 `voila-reveal` can be installed from PyPI
 
